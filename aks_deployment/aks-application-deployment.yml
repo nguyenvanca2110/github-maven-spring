@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: maven-spring-app
-  namespace: maven-spring-namespace
+  namespace: maven-namespace
 spec:
   replicas: 2
   selector:
@@ -14,8 +14,8 @@ spec:
         app: maven-spring-app
     spec:
       containers:
-      - name: maven-spring-container
-        image: gradlecanvacr.azurecr.io/maven_app:12
+      - name: maven-spring-app
+        image: gradlecanvacr.azurecr.io/spring-maven-app:73253b2
         imagePullPolicy: "Always"
         resources:
           requests:

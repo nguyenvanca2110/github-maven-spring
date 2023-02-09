@@ -58,7 +58,7 @@ pipeline{
                         sh ('kubectl apply -f aks_deployment/aks-namespace.yml')
                         sh ('kubectl apply -f aks_deployment/aks-service-deployment.yml')
                         //sh ('kubectl apply -f aks_deployment/aks-application-deployment.yml')
-                        sh ('kubectl set image deployment/maven-spring-app maven-spring-container=$ACR_GRADLE_DEMO_URL/$APPLICATION_NAME:$COMMIT_HASH --namespace $NAME_SPACE')
+                        sh ('kubectl set image deployment/$APPLICATION_NAME $APPLICATION_NAME=$ACR_GRADLE_DEMO_URL/$APPLICATION_NAME:$COMMIT_HASH --namespace $NAME_SPACE')
                     //}
                 }
             }
