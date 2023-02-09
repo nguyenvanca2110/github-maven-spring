@@ -22,7 +22,7 @@ pipeline{
 
 	stages {
 
-        stage('Gradle build image') {
+        stage('Maven build image') {
         	steps {
         	    sh 'echo $PWD'
         		// sh 'cd ..'
@@ -51,7 +51,7 @@ pipeline{
 			}
 		}
 
-		stage('Gradle K8S Deploy') {
+		stage('Maven K8S Deploy') {
 		    steps{
 		        script {
 		            //withKubeConfig([credentialsId: 'AZURE_AKS', serverUrl: '']) {
@@ -70,7 +70,6 @@ pipeline{
 			sh 'docker image prune -f --filter="dangling=true"'
 			sh 'docker rmi -f $ACR_GRADLE_DEMO_URL/$APPLICATION_NAME:$COMMIT_HASH'
 			sh 'docker images'
-			sh 'docker ps ' // Check merge
 		}
 	}
 
