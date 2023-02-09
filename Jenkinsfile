@@ -11,7 +11,7 @@ pipeline{
 		ACR_CREDENTIALS=credentials('KAKASHI_AZURE_ACR')
 		ACR_GRADLE_DEMO_URL = "gradlecanvacr.azurecr.io"
 		ACR_GRADLE_DEMO = "gradlecanvacr"
-		APPLICATION_NAME = "spring-maven-app"
+		APPLICATION_NAME = "maven-spring-app"
 		COMMIT_HASH = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
 		NAME_SPACE = "maven-namespace"
         //BRANCH = "${env.GIT_BRANCH}"
